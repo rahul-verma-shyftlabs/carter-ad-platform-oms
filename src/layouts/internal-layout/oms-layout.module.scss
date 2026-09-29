@@ -1,0 +1,11 @@
+.shell {
+  min-height: 100vh;
+  background: $grey-100;
+  display: flex;
+  flex-direction: column;
+
+  &[data-embedded='true'] {
+    min-height: 100%;
+    background: $white-100;
+  }
+}

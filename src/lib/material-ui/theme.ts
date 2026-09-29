@@ -1,0 +1,140 @@
+import { createTheme } from '@mui/material/styles';
+
+export const colors = {
+  red100: '#f07979',
+  red200: '#ff7676',
+  red300: '#ed5555',
+  red400: '#ff3b30',
+  red500: '#ff0000',
+  yellow100: '#faf7ae',
+  yellow200: '#fde5c0',
+  yellow300: '#f7b307',
+  yellow400: '#ffd085',
+  yellow500: '#ffd305',
+  yellow600: '#9b9500',
+  orange100: '#ffeed3',
+  orange200: '#ffc1c1',
+  orange300: '#fdbb7e',
+  orange400: '#f6b307',
+  orange500: '#e89e36',
+  orange600: '#ed6c02',
+  orange700: '#b46d00',
+  blue100: '#dceeff',
+  blue200: '#d4deff',
+  blue300: '#c1f0ff',
+  blue400: '#3399ff',
+  blue500: '#0887ce',
+  blue600: '#007bff',
+  blue700: '#007aff',
+  blue800: '#0085b0',
+  blue900: '#2456bc',
+  blue1000: '#0f2a6f',
+  blue1100: '#12297d',
+  blue1200: '#627ae4',
+  blue1300: '#2c3f66',
+  blue1400: '#116dff',
+  blue1500: '#001952',
+  blue1600: '#002f8ad9',
+  blue1700: '#18a0fb',
+  green100: '#cdf3c6',
+  green200: '#61bb6f',
+  green300: '#42d058',
+  green400: '#12b76a',
+  green500: '#189b00',
+  grey100: '#fafafa',
+  grey200: '#f4f4f4',
+  grey300: '#f5f8fa',
+  grey400: '#f0f0f0',
+  grey500: '#edf0fc',
+  grey600: '#f5f5f5',
+  grey700: '#e4e4e4',
+  grey800: '#e0e0e0',
+  grey900: '#c9c9c9',
+  grey1000: '#b0b0b0',
+  grey1100: '#83a3af',
+  grey1200: '#dedede',
+  grey1300: '#b1b1b1',
+  grey1400: '#d4e5f9',
+  black100: '#333333',
+  black200: '#202020',
+  black300: '#1f2b33',
+  black400: '#252525',
+  black500: '#313131',
+  black600: '#242424',
+  white100: '#ffffff',
+  white200: '#f8faff',
+  white300: '#f5f4f4',
+  white400: '#d4e5f9',
+  white500: '#f2f5f7',
+  primaryDefault: '#0a2c45',
+  primaryHover: '#134765',
+  secondaryDefault: '#216af7',
+  secondaryHover: '#258dff',
+  textColorPrimary: '#1f2b33',
+  textColorSecondary: '#919191',
+  textColorDescription: '#486570',
+  textColorBreadcrumbActive: '#007de6',
+  textColorDark: '#616161',
+  textColorInactive: '#c2c2c2',
+  textColorLoginCarousel: '#c2c2c2',
+  textColorPasswordStrength: '#949494',
+  borderColorSecondary: '#ccc',
+  alertIconBlue: '#1938A6',
+  // TODO: Move to DSL
+  carterBlue500: '#6C91C5',
+};
+
+const theme = createTheme({
+  typography: {
+    fontFamily: ['Roboto', 'sans-serif'].join(','),
+  },
+  components: {
+    MuiTextField: {
+      defaultProps: {
+        sx: {
+          '& .MuiInputBase-root.Mui-disabled': {
+            backgroundColor: '#F5F5F5',
+            color: colors.textColorSecondary,
+          },
+        },
+      },
+    },
+    MuiRadio: {
+      defaultProps: {
+        sx: {
+          '&.Mui-disabled': {
+            color: colors.grey1200,
+            '& .MuiSvgIcon-root': {
+              color: colors.grey1200,
+            },
+          },
+        },
+      },
+    },
+  },
+  palette: {
+    primary: {
+      main: colors.primaryDefault,
+      light: colors.primaryHover,
+    },
+    secondary: {
+      main: colors.secondaryDefault,
+      light: colors.secondaryHover,
+    },
+    error: {
+      main: colors.red400,
+    },
+    success: {
+      main: colors.green200,
+      light: colors.green100,
+      dark: colors.green500,
+    },
+    text: {
+      primary: colors.textColorPrimary,
+      secondary: colors.textColorSecondary,
+      disabled: colors.textColorInactive,
+    },
+  },
+});
+
+export default theme;

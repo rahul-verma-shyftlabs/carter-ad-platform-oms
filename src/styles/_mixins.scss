@@ -1,0 +1,237 @@
+@mixin externalLayoutBg {
+  background: linear-gradient(to bottom, var(--primary-dark), var(--primary-light));
+}
+
+@mixin hideScrollbar {
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin themeScrollbar {
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $grey-100;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: $grey-700;
+  }
+}
+
+@mixin scrollable-y($height: null) {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: $carter-neutral-300 transparent;
+
+  @if $height != null {
+    height: $height;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $carter-neutral-300;
+    border-radius: 3px;
+  }
+}
+
+@mixin section-boiler-plate {
+  background-color: $white-100;
+  border-radius: var(--border-radius-common);
+}
+
+@mixin section-title-boiler-plate {
+  @include typography(s, semibold);
+  color: $text-color-primary;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+
+@mixin section-desc-boiler-plate {
+  @include typography(xs, regular);
+  color: $text-color-description;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+@mixin layout(
+  $display,
+  $direction,
+  $justification,
+  $alignments: center,
+  $padding: 0px,
+  $background-color: #fff,
+  $gap: inherit,
+  $border: none,
+  $border-radius: none
+) {
+  display: $display;
+  flex-direction: $direction;
+  justify-content: $justification;
+  align-items: $alignments;
+  padding: $padding;
+  background-color: $background-color;
+  gap: $gap;
+  border: $border;
+  border-radius: $border-radius;
+}
+
+@mixin dspCardShadow {
+  box-shadow: 0 26px 7px 0 rgba(173, 182, 225, 0), 0 17px 7px 0 rgba(173, 182, 225, 0.03),
+    0 9px 6px 0 rgba(173, 182, 225, 0.1), 0 4px 4px 0 rgba(173, 182, 225, 0.17), 0 1px 2px 0 rgba(173, 182, 225, 0.2);
+}
+
+@mixin cardLikeShadow {
+  box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.02), 0px 1px 3px 0px rgba(0, 0, 0, 0.02);
+}
+
+@mixin linearGradientBackground {
+  background: linear-gradient(49deg, rgba(255, 194, 133, 0.08) 0%, rgba(98, 122, 228, 0.08) 76.41%), #fff;
+}
+
+@mixin uploadBoxBackground {
+  background: linear-gradient(116deg, rgba(255, 194, 133, 0.1) 1.27%, rgba(98, 122, 228, 0.1) 94.39%);
+}
+
+@mixin boxShadow {
+  box-shadow: 14px 17px 6px 0 rgba(174, 187, 193, 0), 9px 11px 6px 0 rgba(174, 187, 193, 0.01),
+    5px 6px 5px 0 rgba(174, 187, 193, 0.05), 2px 3px 4px 0 rgba(174, 187, 193, 0.09),
+    1px 1px 2px 0 rgba(174, 187, 193, 0.1);
+}
+
+@mixin containerBoxShadow {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+@mixin infoBoxShadow {
+  box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+@mixin linearGradient {
+  background: linear-gradient(49deg, rgba(255, 194, 133, 0.08) 0%, rgba(98, 122, 228, 0.08) 76.41%), #fbfbfb;
+}
+
+@mixin linearBackGroundGradient {
+  background: linear-gradient(49deg, rgba(98, 122, 228, 0.15) 13.29%, rgba(255, 194, 133, 0.15) 98.73%), #fbfbfb;
+}
+@mixin dotted-divider {
+  border-bottom: none;
+  background-image: repeating-linear-gradient(
+    to right,
+    $carter-grey-300 0,
+    $carter-grey-300 1.5px,
+    transparent 2.5px,
+    transparent 5px
+  );
+  background-size: 100% 1.5px;
+  background-position: left bottom;
+  background-repeat: repeat-x;
+}
+
+@mixin card-like-container($shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.08)) {
+  border-radius: $carter-border-radius-large;
+  display: flex;
+  flex-direction: column;
+  gap: $carter-spatial-07;
+  padding: $carter-spatial-07 $carter-spatial-09;
+  background: linear-gradient(180deg, $carter-neutral-0 0%, #f4f5f8 100%);
+  box-shadow: $shadow;
+  border: $carter-border-width-thin solid $carter-neutral-0;
+}
+
+@mixin overview-field-divider {
+  border-right: $carter-border-width-thin solid $carter-border-default;
+  padding-right: $carter-spatial-05;
+}
+
+@mixin overview-field-divider-none {
+  border-right: none;
+  padding-right: 0;
+}
+
+/// Overview field grid with a divider between columns, dropped on the last
+/// field of every row and on the final field. Column counts collapse per
+/// breakpoint, and the divider rules are recalculated for each of them.
+@mixin overview-fields-grid(
+  $columns: 4,
+  $tablet-columns: 3,
+  $mobile-columns: 2,
+  $gap: $carter-spatial-05,
+  $field: '.field'
+) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+
+  #{$field} {
+    @include overview-field-divider;
+
+    &:nth-child(#{$columns}n),
+    &:last-child {
+      @include overview-field-divider-none;
+    }
+  }
+
+  @include tablet {
+    grid-template-columns: repeat($tablet-columns, 1fr);
+
+    #{$field} {
+      &:nth-child(#{$columns}n):not(:last-child) {
+        @include overview-field-divider;
+      }
+
+      &:nth-child(#{$tablet-columns}n),
+      &:last-child {
+        @include overview-field-divider-none;
+      }
+    }
+  }
+
+  @include mobile {
+    grid-template-columns: repeat($mobile-columns, 1fr);
+
+    #{$field} {
+      &:nth-child(#{$columns}n):not(:last-child),
+      &:nth-child(#{$tablet-columns}n):not(:last-child) {
+        @include overview-field-divider;
+      }
+
+      &:nth-child(#{$mobile-columns}n),
+      &:last-child {
+        @include overview-field-divider-none;
+      }
+    }
+  }
+}
+
+/// Height collapse/expand via grid 0fr → 1fr.
+/// Pass the parent flex `$gap` so a collapsed section cancels that gap.
+@mixin collapsible-section($gap: 0) {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  margin-bottom: calc(-1 * #{$gap});
+  pointer-events: none;
+  transition: grid-template-rows 450ms ease, opacity 350ms ease, margin-bottom 450ms ease;
+}
+
+@mixin collapsible-section-expanded {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-bottom: 0;
+  pointer-events: auto;
+}
+
+@mixin collapsible-section-inner {
+  overflow: hidden;
+  min-height: 0;
+}

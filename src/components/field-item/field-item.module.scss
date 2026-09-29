@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0;
+  min-width: 170px;
+
+  .label_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    svg {
+      cursor: pointer;
+    }
+  }
+
+  .values_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    span {
+      font-weight: 500;
+      color: $carter-text-900;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      vertical-align: middle;
+      font-family: Inter, sans-serif;
+
+      &:nth-of-type(2) {
+        text-decoration-line: line-through;
+        color: $carter-red-500;
+      }
+    }
+
+    .removed_value {
+      text-decoration-line: line-through;
+      color: $carter-red-500;
+    }
+  }
+}

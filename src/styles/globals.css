@@ -1,0 +1,243 @@
+@import 'carter-dsl/tokens.css';
+@import 'carter-dsl/components.css';
+
+:root {
+  /* typography */
+  --xxxxs: 4px;
+  --xxxs: 8px;
+  --xxs: 12px;
+  --xs: 14px;
+  --s: 16px;
+  --sm: 18px;
+  --md: 20px;
+  --lg: 24px;
+  --mlg: 32px;
+  --xlg: 40px;
+  --xxlg: 56px;
+  --xxxlg: 64px;
+
+  /* border radius */
+  --border-radius-common: 10px;
+  --border-radius-section: 6px;
+
+  /* color palette */
+  --red-200: #ff7676;
+  --red-400: #ff3b30;
+  --red-500: #ff0000;
+  --yellow-300: #f7b307;
+  --orange-100: #ffeed3;
+  --orange-600: #ed6c02;
+  --blue-100: #dceeff;
+  --blue-200: #d4deff;
+  --blue-300: #c1f0ff;
+  --blue-400: #3399ff;
+  --blue-500: #0887ce;
+  --blue-700: #007aff;
+  --blue-800: #0085b0;
+  --blue-900: #2456bc;
+  --blue-1200: #627ae4;
+  --blue-1300: #2c3f66;
+  --blue-1500: #001952;
+  --green-100: #cdf3c6;
+  --green-200: #61bb6f;
+  --green-300: #42d058;
+  --green-500: #189b00;
+  --grey-100: #fafafa;
+  --grey-200: #f4f4f4;
+  --grey-300: #e6ecef;
+  --grey-400: #f0f0f0;
+  --grey-500: #edf0fc;
+  --grey-600: #f5f5f5;
+  --grey-700: #e4e4e4;
+  --grey-900: #c9c9c9;
+  --grey-1100: #83a3af;
+  --grey-1200: #dedede;
+  --black-100: #333333;
+  --black-200: #202020;
+  --black-300: #1f2b33;
+  --black-400: #252525;
+  --black-500: #313131;
+  --black-600: #242424;
+  --white-100: #ffffff;
+  --white-200: #f8faff;
+  --white-300: #f5f4f4;
+  --white-400: #d4e5f9;
+  --white-500: #f2f5f7;
+  --brand-600: #12297d;
+  --primary-default: #0a2c45;
+  --primary-hover: #134765;
+  --secondary-default: #216af7;
+  --text-color-primary: var(--black-300);
+  --text-color-secondary: #919191;
+  --text-color-description: #486570;
+  --text-color-dark: #616161;
+  --text-color-inactive: #c2c2c2;
+  --text-color-password-strength: #949494;
+  --border-color-secondary: #ccc;
+  --carter-layout-background: #fbfbfb;
+  --hover-brand-100: #edf0fc;
+
+  /* Legacy Carter colors not provided by carter-dsl/tokens.css */
+  --text-100: #b4c7cf;
+  --carter-text-900: #1f2833;
+  --carter-text-800: #364c59;
+  --carter-text-700: #456173;
+  --carter-text-600: #486570;
+  --carter-text-500: #587b89;
+  --carter-text-400: #6a91a0;
+  --carter-text-300: #83a3af;
+  --carter-text-200: #9bb5bf;
+  --carter-grey-900: #5f8795;
+  --carter-grey-800: #83a3af;
+  --carter-grey-700: #9bb5bf;
+  --carter-grey-600: #c1d0d7;
+  --carter-grey-500: #0ae3e7;
+  --carter-grey-400: #cedadf;
+  --carter-grey-300: #e6ecef;
+  --carter-grey-200: #f2f5f7;
+  --carter-grey-100: #ffffff;
+  --carter-links-blue: #3d71e6;
+  --carter-light-blue: #4895ef;
+  --alert-blue: #e5f6fd;
+  --chart-purple: #9366b7;
+}
+
+/*
+ * WebKit number spinners: avoid -webkit-appearance: none (it removes the controls,
+ * so they can never show on hover/focus). Fade them out until the field is hovered or focused.
+ */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+input[type='number']:hover::-webkit-inner-spin-button,
+input[type='number']:hover::-webkit-outer-spin-button,
+input[type='number']:focus::-webkit-inner-spin-button,
+input[type='number']:focus::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow-y: auto;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  color: rgb(var(--foreground-rgb));
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
+#__next {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.audience-table-row {
+  height: 44px !important;
+}
+
+.custom-search-input,
+.custom-select-input,
+.custom-select-input input {
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.custom-auto-complete-input,
+.custom-auto-complete-input .MuiAutocomplete-inputRoot {
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.custom-auto-complete-input input,
+.custom-auto-complete-input .MuiInputAdornment-root {
+  position: relative;
+  bottom: 8px;
+}
+
+.custom-button-style {
+  height: 40px;
+}
+
+div[role='tooltip'] {
+  z-index: 1305;
+}
+
+.channel-logo {
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.channel-logo-small {
+  width: 16px;
+  height: 16px;
+}
+
+.channel-logo-medium {
+  width: 24px;
+  height: 24px;
+}
+
+.channel-logo-large {
+  width: 28px;
+  height: 28px;
+}
+
+.channel-logo-container {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  flex-wrap: wrap;
+  width: max-content;
+  img {
+    object-fit: contain;
+  }
+}
+
+/* Spinner animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}

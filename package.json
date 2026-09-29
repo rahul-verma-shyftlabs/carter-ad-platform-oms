@@ -1,0 +1,52 @@
+{
+  "name": "rmn-oms",
+  "version": "v1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "rimraf .next && next build",
+    "start": "next start -p 3001",
+    "lint": "eslint ./src",
+    "compile": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@emotion/cache": "11.7.1",
+    "@emotion/react": "11.14.0",
+    "@emotion/server": "11.4.0",
+    "@emotion/styled": "11.11.5",
+    "@mui/material": "5.14.0",
+    "@mui/system": "5.15.14",
+    "@mui/x-date-pickers": "7.12.0",
+    "axios": "1.7.4",
+    "carter-dsl": "./carter-dsl-v0.0.80.tgz",
+    "formik": "2.4.9",
+    "lucide-react": "1.8.0",
+    "moment": "2.30.1",
+    "moment-timezone": "0.5.45",
+    "next": "14.2.35",
+    "pino": "8.11.0",
+    "pino-pretty": "10.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-redux": "7.2.8",
+    "redux": "4.1.2",
+    "redux-thunk": "2.4.1",
+    "rimraf": "3.0.2",
+    "shyftlabs-dsl": "./shyftlabs-dsl-v1.3.18.tgz",
+    "swr": "2.2.2",
+    "yup": "0.32.11"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.10",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "sass": "1.62.0",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

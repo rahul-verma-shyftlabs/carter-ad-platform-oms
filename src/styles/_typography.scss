@@ -1,0 +1,65 @@
+$font-family: 'Inter', 'Roboto', sans-serif;
+@mixin font_thin {
+  font-family: $font-family;
+  font-weight: 300;
+}
+
+@mixin font_regular {
+  font-family: $font-family;
+  font-weight: 400;
+}
+
+@mixin font_medium {
+  font-family: $font-family;
+  font-weight: 500;
+}
+
+@mixin font_semibold {
+  font-family: $font-family;
+  font-weight: 700;
+}
+
+@mixin font_bold {
+  font-family: $font-family;
+  font-weight: 900;
+}
+
+$sizes: (
+  xxxxs: var(--xxxxs),
+  xxxs: var(--xxxs),
+  xxs: var(--xxs),
+  xs: var(--xs),
+  s: var(--s),
+  sm: var(--sm),
+  md: var(--md),
+  lg: var(--lg),
+  mlg: var(--mlg),
+  xlg: var(--xlg),
+  xxlg: var(--xxlg),
+  xxxlg: var(--xxxlg),
+);
+
+@mixin sizing($size, $rule: '') {
+  @if map-has-key($sizes, $size) {
+    #{$rule}: map-get($sizes, $size);
+  }
+}
+
+@mixin typography($size, $variant: '') {
+  @if $variant == bold {
+    @include font_bold();
+    @include sizing($size, 'font-size');
+  } @else if $variant == semibold {
+    @include font_semibold();
+    @include sizing($size, 'font-size');
+  } @else if $variant == medium {
+    @include font_medium();
+    @include sizing($size, 'font-size');
+  } @else if $variant == thin {
+    @include font_thin();
+    @include sizing($size, 'font-size');
+  } @else {
+    @include font_regular();
+    @include sizing($size, 'font-size');
+  }
+}

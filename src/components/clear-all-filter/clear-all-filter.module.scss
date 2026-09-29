@@ -1,0 +1,13 @@
+.container {
+  background-color: $carter-red-200;
+  border-color: $carter-red-200;
+  width: 34px;
+  height: 32px;
+  svg {
+    color: $carter-red-700;
+  }
+  &:hover {
+    background-color: $carter-red-200;
+    border-color: $carter-red-500;
+  }
+}

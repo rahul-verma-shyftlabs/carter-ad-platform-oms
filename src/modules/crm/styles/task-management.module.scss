@@ -1,0 +1,129 @@
+.task_management_container {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: $carter-grey-100;
+  min-height: calc(100vh - 100px);
+}
+
+.status_filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.status_filter_btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid $carter-grey-200;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: $carter-grey-300;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.status_filter_active {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(138, 43, 226, 0.05) 100%);
+  border-color: rgba(138, 43, 226, 0.3);
+  box-shadow: 0 2px 8px rgba(138, 43, 226, 0.1);
+}
+
+.tickets_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ticket_card {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid $carter-grey-200;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-color: $carter-grey-300;
+    transform: translateY(-2px);
+  }
+}
+
+.ticket_card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $carter-grey-200;
+}
+
+.task_group_dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.ticket_card_body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.ticket_column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ticket_field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.loading_state,
+.error_state,
+.empty_state {
+  padding: 48px;
+  text-align: center;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid $carter-grey-200;
+}
+
+.error_state {
+  background-color: $carter-red-200;
+  border-color: $carter-red-200;
+}
+
+// Responsive design
+@media (max-width: 1200px) {
+  .ticket_card_body {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .task_management_container {
+    padding: 16px;
+  }
+
+  .ticket_card_body {
+    grid-template-columns: 1fr;
+  }
+
+  .status_filters {
+    gap: 8px;
+  }
+
+  .status_filter_btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}

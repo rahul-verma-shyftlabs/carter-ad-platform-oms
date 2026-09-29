@@ -1,0 +1,17 @@
+variables:
+  NAME: "oms-frontend"
+  APP_VERSION:
+    value: "v0.0.1"
+    description: "Version of the application"
+  BUILD_VARS: >-
+    --build-arg NEXT_PUBLIC_APP_ENV=$PROJECT_ENV
+    --build-arg NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
+    --build-arg NEXT_PUBLIC_APP_BASE_URL=$NEXT_PUBLIC_APP_BASE_URL
+    --build-arg NEXT_PUBLIC_CRM_API_BASE_URL=$NEXT_PUBLIC_CRM_API_BASE_URL
+    --build-arg NEXT_PUBLIC_PARENT_ORIGIN=$NEXT_PUBLIC_PARENT_ORIGIN
+    --build-arg NEXT_PUBLIC_ALLOW_INSECURE=$NEXT_PUBLIC_ALLOW_INSECURE
+
+include:
+  - project: petco/RMN/devops/gitlab-runner-template
+    ref: main
+    file: build_deploy.yml
